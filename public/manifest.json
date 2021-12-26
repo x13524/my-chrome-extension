@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "图片查看助手",
+  "description": "图片查看助手",
+  "version": "1.0",
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "minimum_chrome_version": "50.0",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "图片查看助手",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>",
+        "\u003Call_urls>"
+      ],
+      "js": [
+        "spotlight/spotlight.min.js",
+        "js/content_script.js"
+      ],
+      "css": [],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "scripts": [
+      "js/vendor.js",
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "web_accessible_resources": [
+    "*"
+  ],
+  "permissions": [
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
